@@ -1,0 +1,830 @@
+/*------ Reset -----*/
+* {
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+
+
+/*------ Root-----*/
+:root {
+  --backgrond: #000;
+  --text-color: #FFF;
+  --button: #8257E5;
+  --border: #29292E;
+  --border-menu-mobile: #A8A8B3;
+  --text-color-menu-mobile: #E1E1E6;
+
+  /*--------- Fonts ------*/
+  --title-font: 'Manrope';
+  --subtitle-font: 'Manrope', sans-serif;
+  --text-font: 'Manrope', sans-serif;
+  --description-font: 'Josefin Sans', sans-serif;
+  --text-navigation: 'Arima', cursive;
+
+
+}
+
+/*------ Base -----*/
+html {
+  scroll-behavior: smooth;
+}
+
+.divider-home {
+  height: 1px;
+  background: linear-gradient(270deg,
+      #FFF,
+      #8257E5);
+  margin-bottom: 3rem;
+  margin-top: -0.25rem;
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(270deg,
+      #8257E5,
+      #FFF);
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(270deg,
+      #FFF,
+      #8257E5);
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+.divider-footer {
+  height: 1px;
+  background: linear-gradient(270deg,
+      #FFF,
+      #FFF);
+  margin-bottom: 0rem;
+  margin-top: 4rem;
+}
+
+/*------ Layout -----*/
+
+
+.grid {
+  display: grid;
+
+}
+
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.title {
+  font-family: var(--title-font);
+  font-size: 2.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: left;
+
+  color: var(--backgrond);
+  text-shadow:
+    -1px -1px 0 var(--button),
+    1px -1px 0 var(--button),
+    -1px 1px 0 var(--button),
+    1px 1px 0 var(--button);
+}
+
+.title-nav {
+  font-family: var(--text-navigation);
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+
+
+.description {
+  font-family: var(--description-font);
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.text {
+  color: var(--text-color);
+  letter-spacing: 0.03rem;
+  line-height: 1.3rem;
+  font-family: var(--text-font);
+  text-align: left;
+  font-size: .90em;
+  margin-bottom: 1rem;
+
+}
+
+body {
+  background-color: var(--backgrond)
+}
+
+/*------ Header -----*/
+#header {
+  border-bottom: 1px solid var(--border-menu-mobile);
+  padding: 1.5rem;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+#header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+  margin: auto;
+}
+
+#header.scroll {
+  box-shadow: 0px 0px 25px #8257e659;
+  background-color: #41009B;
+}
+
+#header .logo-desktop {
+  display: none;
+}
+
+/*------ Navigation -----*/
+nav .button-desktop {
+  display: none;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.3s;
+}
+
+nav ul li a {
+  transition: 0.3s;
+  position: relative;
+}
+
+.menu ul {
+  padding: 0;
+  display: none;
+}
+
+
+nav ul li a:hover {
+  color: var(--button);
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: var(--button);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+
+  transition: width 0.3s;
+}
+
+
+/* mostrar menu */
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+
+  background-color: var(--backgrond);
+
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav.show ul {
+  gap: 4rem;
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+
+/* toggle menu */
+.toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  ;
+}
+
+nav .fa-xmark {
+  color: var(--button);
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  right: 1.5rem;
+  transition: .3s;
+  top: -1.5rem
+}
+
+nav.show i.fa-xmark {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+
+
+/*------ Home -----*/
+
+#home h1 {
+  color: var(--text-color);
+  text-align: center;
+  margin: 10rem 2rem;
+  font-size: 1.87rem;
+  letter-spacing: 0.03rem;
+  font-family: var(--title-font);
+  line-height: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 5rem;
+}
+
+#home .button {
+  color: var(--text-color-menu-mobile);
+  border: 1.5px solid var(--button);
+  border-radius: 0.25rem;
+  padding: 0.5rem 2rem;
+  transition: background 0.3s;
+}
+
+#home .button:hover {
+  background-color: var(--button);
+}
+
+#home .subtitle {
+  text-align: center;
+  font-size: 1.87rem;
+  font-family: var(--subtitle-font);
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+}
+
+#home .subtitle h2~h2 {
+  color: black;
+  text-shadow:
+    -1px -1px 0 var(--button),
+    1px -1px 0 var(--button),
+    -1px 1px 0 var(--button),
+    1px 1px 0 var(--button);
+}
+
+
+#home .image {
+  width: 100%;
+  position: relative;
+  background-image: url(/assets/assets/blur-mobile.png);
+  background-size: contain;
+}
+
+#home .blur2,
+#home .blur1 {
+  visibility: hidden;
+  position: absolute;
+  display: none;
+}
+
+#home .container {
+  justify-items: center;
+}
+
+/*------ Coffees -----*/
+#coffees p {
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  line-height: 2rem;
+}
+
+#coffees .card {
+  border: 2px solid var(--button);
+  border-radius: 1.8rem;
+  margin: 2rem .5rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  box-shadow: 0px 0px 8px #ffffff4f;
+  border-bottom: 0.10rem solid var(--text-color);
+
+}
+
+.cards h3,
+.cards i {
+  color: var(--button);
+  margin-right: 0.2rem;
+  font-size: 1.4rem;
+}
+
+.card h3:hover,
+.card i:hover {
+  color: red;
+}
+
+.card h3 {
+  display: inline-block;
+  color: var(--button)
+}
+
+
+
+.cards strong {
+  color: var(--button);
+}
+
+/*------ Place -----*/
+#place {
+  text-align: center;
+}
+
+#place img {
+  max-width: 100%;
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.place p {
+  color: var(--text-color);
+  font-family: var(--text-font);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+
+span.swiper-pagination-bullet {
+  background-color: #8257e59d;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: var(--button);
+}
+
+/*------ About -----*/
+#about .image {
+  border-radius: 0.5rem;
+  border: 1px solid var(--button);
+  max-width: 100%;
+  place-self: center;
+
+}
+
+#about .text,
+#about .grid {
+  text-align: center;
+}
+
+/*------ Contact -----*/
+#contact .container {
+  text-align: center;
+}
+
+
+#contact .text {
+  text-align: left;
+}
+
+#contact .button {
+  color: var(--text-color-menu-mobile);
+  border: 1.5px solid var(--button);
+  border-radius: 0.25rem;
+  padding: 0.5rem 2rem;
+  transition: background 0.5s;
+  display: block;
+  max-width: fit-content;
+  margin: auto;
+  margin-bottom: 4rem;
+  margin-top: 1.2em;
+  font-family: var(--title-font);
+}
+
+#contact .button i {
+  margin-right: .3em;
+}
+
+#contact .button:hover {
+  background-color: var(--button);
+
+}
+
+#contact .grid {
+  gap: 1rem;
+  font-size: 1.2rem;
+  text-align: start;
+}
+
+
+.links ul {
+  margin: auto;
+  padding: 0;
+}
+
+.links ul li i {
+  color: var(--button);
+  margin-right: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.links ul li i:hover {
+  transform: translateX(4px);
+  transition: 0.3s;
+  box-shadow: var(--button);
+  cursor: pointer;
+}
+
+
+.links ul li {
+  margin-top: 1rem;
+  color: var(--text-color);
+  font-family: var(--text-font);
+  font-size: 1rem;
+}
+
+
+
+/*------ Footer -----*/
+footer {
+  background-color: #41009B;
+  padding: 2rem 0rem;
+  color: var(--text-color-menu-mobile)
+}
+
+
+footer .grid {
+  display: flex;
+  padding: 0rem 0rem;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+}
+
+footer .social {
+  display: inline-block;
+  font-size: 1.5rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
+}
+
+footer .logo img {
+  max-width: 85%;
+  padding-right: .8rem;
+}
+
+footer .icons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+footer .copyright {
+  text-align: center;
+  line-height: 2rem;
+}
+
+footer .copyright p {
+
+  font-size: 0.9rem;
+  font-family: 'Manrope';
+  font-weight: 400;
+}
+
+footer span {
+  color: red;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.2rem;
+  margin-left: .5rem;
+
+}
+
+footer a {
+  color: var(--text-color)
+}
+
+footer a:hover {
+  transform: translateY(3px);
+  transition: 0.3s;
+  color: red
+}
+
+/*------ Back to top -----*/
+.back-to-top {
+  background-color: #41009B;
+  color: var(--text-color);
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  clip-path: circle();
+  padding: .8rem;
+  font-size: .8rem;
+  line-height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+  transform: translateY(100%);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*============= MEDIA QUERIES ===============*/
+/* Size: 1200*/
+@media (min-width: 900px) {
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem 8rem 1.5rem 8rem
+  }
+
+  .section header {
+    text-align-last: center
+  }
+
+  section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  /*------ Navigation -----*/
+  #header .logo-desktop {
+    display: block;
+  }
+
+  #header .logo {
+    display: none;
+  }
+
+  #header {
+    padding-left: 8rem;
+    padding-right: 0rem;
+  }
+
+
+  #header nav {
+    justify-content: space-between;
+  }
+
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    z-index: 999;
+    top: 2rem;
+
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+
+  }
+
+  nav .menu ul a.title-nav {
+    font-size: 1rem;
+    font-family: var(--title-font)
+  }
+
+  nav .toggle {
+    visibility: hidden;
+    display: none;
+  }
+
+  nav .button-desktop {
+    color: var(--text-color-menu-mobile);
+    border: 1.5px solid var(--button);
+    border-radius: 0.25rem;
+    padding: 0.5rem 2rem;
+    transition: background 0.3s;
+    display: block;
+    min-width: max-content;
+    font-family: var(--title-font)
+  }
+
+  nav .button-desktop:hover {
+    background-color: var(--button);
+  }
+
+  /*------ Home -----*/
+
+  section#home {
+    padding: 8rem 8rem .2rem 8rem;
+    content-visibility: auto
+  }
+
+  #home a.button {
+    display: none;
+  }
+
+  #home h1 {
+    display: none;
+  }
+
+  #home .image {
+    background: none;
+    max-width: 60%;
+    align-items: center;
+    margin: auto;
+    display: block;
+  }
+
+  #home .blur2,
+  #home .blur1 {
+    visibility: visible;
+    position: absolute;
+    display: block;
+  }
+
+  #home .blur1 {
+    bottom: .2rem;
+    left: 0;
+
+  }
+
+  #home .blur2 {
+    margin: 0;
+    top: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  /*------ Coffees -----*/
+  #coffees header {}
+
+  .cards h3,
+  .cards i {
+    font-size: 2rem;
+  }
+
+  .cards {}
+
+  /*------ About -----*/
+  #about .grid {
+    grid-auto-flow: column;
+    gap: 6rem;
+  }
+
+  #about .image {
+    align-self: center;
+    min-width: max-content;
+  }
+
+  #about .text {
+    text-align: left;
+  }
+
+  #about .title {
+    margin-bottom: 4rem;
+  }
+
+  /*------ Contact -----*/
+
+  #contact .grid {
+    grid-auto-flow: column;
+    gap: 6rem;
+  }
+
+  #contact .content {
+    max-width: 30rem;
+
+  }
+
+  #contact .content-links {
+    padding: 2rem;
+    align-self: center;
+
+  }
+
+  #contact .button {
+    display: inline;
+    align-items: center;
+  }
+
+  #contact .links {
+    margin-top: 2.5rem;
+  }
+
+  /*------ footer -----*/
+  footer .grid {
+    justify-content: space-around;
+  }
+
+  footer .logo img {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  footer .social {
+    font-size: 2rem;
+  }
+
+  footer .copyright p {
+    font-size: 1rem;
+  }
+
+  footer span {
+    font-size: 1.3rem;
+  }
+
+  /*------ Back to top -----*/
+  .back-to-top {
+    right: 3rem;
+    bottom: 3rem;
+    font-size: 2rem;
+  }
+
+}
+
+/* Size: 1023*/
+@media (min-width: 1023px) {}
+
+/* Size: 992*/
+@media (min-width: 992px) {}
+
+/* Size: 767*/
+@media (min-width: 767px) {
+  .title {
+    font-size: 3.3rem;
+  }
+
+  .title-nav {
+    font-size: 3.3rem;
+  }
+
+  /*------ Header -----*/
+  #header .logo {
+    width: 13rem;
+  }
+
+  #header .toggle {
+    width: 2.5rem;
+  }
+
+  /*------ Home -----*/
+
+  #home h1 {
+    font-size: 2.2rem;
+    margin: 10rem 2rem 5rem;
+  }
+
+  #home .button {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  #home .subtitle {
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /*------ Coffees -----*/
+  .cards h3,
+  .cards i {
+    font-size: 2rem;
+  }
+
+  .cards {
+    display: grid;
+
+  }
+}
